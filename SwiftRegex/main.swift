@@ -6,10 +6,17 @@
 //  Copyright (c) 2014 Gregory Todd Williams. All rights reserved.
 //
 
-let value = "Hello, 火星, 🔥🌠!"
-let pattern = "[\\u6620-\\U0001F500]"
+let value: String = "<item>what a day</item><item>whattest</item>";
+let pattern: String = "<(item)>(.+?)</item>";
+
 print("string  : \(value)")
 print("pattern : \(pattern)")
-for m in value =~ pattern {
+
+let items = value =~ pattern
+print(items.captureItems)
+for m in items {
     print("matched pattern: \(m)")
 }
+
+print(items.boolValue)
+
